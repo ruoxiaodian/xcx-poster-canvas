@@ -1,5 +1,3 @@
 
 <components-poster id="poster"></components-poster>
-<view style="position: absolute; left: 0; bottom: 30px; width: 100%; text-align: center; z-index: 2">
-    <van-button type="primary" bind:click="bindCreatePoster">生成海报</van-button>
-</view>
+<view style="position: absolute; left: 0; bottom: 30px; width: 100%; text-align: center; z-index: 2" bind:click="bindCreatePoster">生成海报</view>
