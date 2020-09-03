@@ -20,7 +20,7 @@ Component({
         },
         showLoading: { //是否显示loading效果
             type: Boolean,
-            value: false
+            value: true
         },
     },
 
@@ -28,8 +28,8 @@ Component({
      * 组件的初始数据
      */
     data: {
-        _pxWidth: 0,
-        _pxHeight: 0
+        _pxWidth: 320,
+        _pxHeight: 569
     },
     _drawData: [],
 

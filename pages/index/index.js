@@ -6,6 +6,7 @@ Page({
 
     },
     bindCreatePoster: function () {
+        const that = this;
         let drawData = [{
             name: "block",
             left: 0,
@@ -112,6 +113,7 @@ Page({
             borderRadius: 200,
         }]
         Poster.create(drawData).then(function (res) {
+            that.setData({url: res})
             console.log("绘制成功")
             console.log(res)
         }).catch(function (err) {

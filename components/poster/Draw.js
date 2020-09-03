@@ -10,7 +10,6 @@ class Draw {
         this.canvas.width = parseInt(width * factor * pixelRatio);  //画布内容宽度
         this.canvas.height = parseInt(height * factor * pixelRatio);  //画布内容高度
         this.factor = factor;
-        // this.context.scale(pixelRatio, pixelRatio)
     }
 
     /*
