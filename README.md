@@ -8,9 +8,9 @@
 ## 尺寸说明
 canvas 在设置超过750rpx的css宽度精度大于2时会报"native buffer exceed size limit"错误； 所以默认设定canvas css宽750rpx、高1334rpx、精度比pixelRatio = 2
 
-## 示例
+## 示例效果
 <img width="300" src="https://github.com/ruoxiaodian/xcx-poster-canvas/blob/master/images/demo.jpg"></img>
-
+背景色是通过block配置渐变实现；
 ## 绘制数据信息（Array）;以下是每个数组项的具体配置信息
 
 ### Block块元素配置
@@ -33,12 +33,12 @@ canvas 在设置超过750rpx的css宽度精度大于2时会报"native buffer exc
 | backgroundRepeat| String           | 否   | 背景图片覆盖方式 默认no-repeat |
 | hollowWidth     | Int              | 否   | 镂空尺寸 |
 | shadowColor     | String           | 否   | 投影颜色 |
-| shadowOffsetX   | Number           | 否   | X轴偏移 依赖shadowColor是否有值 |
-| shadowOffsetY   | Number           | 否   | Y轴偏移 依赖shadowColor是否有值 |
-| shadowBlur      | Number           | 否   | 虚化程度 依赖shadowColor是否有值 |
-| linearGradient  | String           | 否   | 线性渐变区间坐标（x0, y0, x1, y1）|
-| radialGradient  | String           | 否   | 镜像渐变区间坐标（x0, y0, r0, x1, y1, r0）|
-| gradientStops   | Array            | 否   | 渐变区间颜色值设定[[0, "#fff"],[200, "rgba(0, 0, 0, 0.5)"]] |
+| shadowOffsetX   | Number           | 否   | X轴偏移 依赖shadowColor是否有值 参考canvas属性|
+| shadowOffsetY   | Number           | 否   | Y轴偏移 依赖shadowColor是否有值 参考canvas属性|
+| shadowBlur      | Number           | 否   | 虚化程度 依赖shadowColor是否有值 参考canvas属性|
+| linearGradient  | String           | 否   | 线性渐变区间坐标(x0, y0, x1, y1)参考canvas属性|
+| radialGradient  | String           | 否   | 镜像渐变区间坐标(x0, y0, r0, x1, y1, r0)参考canvas属性|
+| gradientStops   | Array            | 否   | 渐变区间颜色值设定[[0, "#fff"],[1, "rgba(0, 0, 0, 0.5)"]] 参考canvas属性|
 | opacity         | Number           | 否   | 默认值1.0 |
 
 如果borderRadius的值大于最短边一半 则会绘制成圆形；也可以通过设置字段radius（int 半径大小）、num（int 边数）、rotate（int 旋转角度）来绘制圆形、正多边形
@@ -88,10 +88,10 @@ canvas 在设置超过750rpx的css宽度精度大于2时会报"native buffer exc
 | borderWidth     | Number(单位:rpx)  | 否   | 描边宽度 |
 | borderColor     | String           | 否   | 描边颜色 |
 | shadowColor     | String           | 否   | 投影颜色 |
-| shadowOffsetX   | Number           | 否   | X轴偏移 依赖shadowColor是否有值 |
-| shadowOffsetY   | Number           | 否   | Y轴偏移 依赖shadowColor是否有值 |
-| shadowBlur      | Number           | 否   | 虚化程度 依赖shadowColor是否有值 |
-| linearGradient  | String           | 否   | 线性渐变区间坐标（x0, y0, x1, y1）|
-| radialGradient  | String           | 否   | 镜像渐变区间坐标（x0, y0, r0, x1, y1, r0）|
-| gradientStops   | Array            | 否   | 渐变区间颜色值设定[[0, "#fff"],[200, "rgba(0, 0, 0, 0.5)"]]|
+| shadowOffsetX   | Number           | 否   | X轴偏移 依赖shadowColor是否有值 参考canvas属性|
+| shadowOffsetY   | Number           | 否   | Y轴偏移 依赖shadowColor是否有值 参考canvas属性|
+| shadowBlur      | Number           | 否   | 虚化程度 依赖shadowColor是否有值 参考canvas属性|
+| linearGradient  | String           | 否   | 线性渐变区间坐标(x0, y0, x1, y1)参考canvas属性|
+| radialGradient  | String           | 否   | 镜像渐变区间坐标(x0, y0, r0, x1, y1, r0)参考canvas属性|
+| gradientStops   | Array            | 否   | 渐变区间颜色值设定[[0, "#fff"],[1, "rgba(0, 0, 0, 0.5)"]] 参考canvas属性|
 | opacity         | Number           | 否   | 默认值1.0 |
