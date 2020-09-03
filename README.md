@@ -11,8 +11,8 @@ canvas 在设置超过750rpx的css宽度精度大于2时会报"native buffer exc
 ## 示例
 <img width="300" src="https://github.com/ruoxiaodian/xcx-poster-canvas/blob/master/images/demo.jpg"></img>
 
-
-### name: image配置
+## 绘制数据配置信息（Array）
+### 图片配置(Object)
 
 | 字段名           | 类型              | 必填  | 描述                                    |
 | --------------- | ---------------- | ---- | -------------------------------------- |
@@ -35,7 +35,7 @@ canvas 在设置超过750rpx的css宽度精度大于2时会报"native buffer exc
 | opacity         | Number           | 否   | 默认值1.0 |
 
 
-### name: text配置
+### 文本配置(Object)
 
 | 字段名           | 类型              | 必填  | 描述                                   |
 | --------------- | ---------------------- | ---- | -------------------------------------- |
@@ -67,8 +67,7 @@ canvas 在设置超过750rpx的css宽度精度大于2时会报"native buffer exc
 | opacity         | Number           | 否   | 默认值1.0 |
 
 
-### name: block配置
-
+### Block块元素配置
 
 #### 矩形
 
