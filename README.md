@@ -70,8 +70,6 @@ canvas 在设置超过750rpx的css宽度精度大于2时会报"native buffer exc
 
 ### Block块元素配置
 
-#### 矩形
-
 | 字段名           | 类型              | 必填  | 描述                                    |
 | --------------- | ---------------- | ---- | -------------------------------------- |
 | name            | String           | 是   | 内容块名称 图片为name: "block" |
@@ -98,56 +96,4 @@ canvas 在设置超过750rpx的css宽度精度大于2时会报"native buffer exc
 | gradientStops   | Array            | 否   | 渐变区间颜色值设定[[0, "#fff"],[200, "rgba(0, 0, 0, 0.5)"]] |
 | opacity         | Number           | 否   | 默认值1.0 |
 
-
-#### 圆形
-
-| 字段名           | 类型              | 必填  | 描述                                   |
-| --------------- | ---------------------- | ---- | -------------------------------------- |
-| name            | String           | 是   | 内容块名称 图片为name: "block" |
-| left            | Number(单位:rpx)   | 否   | 离画布左边距离 |
-| top             | Number(单位:rpx)   | 否   | 离画布底部距离 |
-| topFollow       | Boolean          | 否   | 默认false; 是否跟随上一个元素之后；true则top为当前模块与上一个模块顶部间距 |
-| right           | Number(单位:rpx)   | 否   | 离画布右边距离 left存在则right无效 |
-| bottom          | Number(单位:rpx)   | 否   | 离画布底部距离 top存在 则bottom无效 |
-| radius          | Number(单位:rpx)   | 是   | 半径 半径大小 |
-| borderWidth     | Number(单位:rpx)   | 否   | 边框宽度 |
-| borderColor     | String           | 否   | 边框颜色 |
-| backgroundColor | String           | 否   | 背景色 |
-| backgroundImage | String           | 否   | 背景图片路径 |
-| backgroundRepeat| String           | 否   | 背景图片覆盖方式 默认no-repeat |
-| shadowColor     | String           | 否   | 投影颜色 |
-| shadowOffsetX   | Number           | 否   | X轴偏移 依赖shadowColor是否有值 |
-| shadowOffsetY   | Number           | 否   | Y轴偏移 依赖shadowColor是否有值 |
-| shadowBlur      | Number           | 否   | 虚化程度 依赖shadowColor是否有值 |
-| linearGradient  | String           | 否   | 线性渐变区间坐标（x0, y0, x1, y1）|
-| radialGradient  | String           | 否   | 镜像渐变区间坐标（x0, y0, r0, x1, y1, r0）|
-| gradientStops   | Array            | 否   | 渐变区间颜色值设定[[0, "#fff"],[200, "rgba(0, 0, 0, 0.5)"]] |
-| opacity         | Number           | 否   | 默认值1.0 |
-
-
-#### 正多边形
-
-| 字段名           | 类型              | 必填  | 描述                                   |
-| --------------- | ---------------- | ---- | -------------------------------------- |
-| name            | String           | 是   | 内容块名称 图片为name: "block" |
-| left            | Number(单位:rpx)   | 否   | 离画布左边距离 |
-| top             | Number(单位:rpx)   | 否   | 离画布底部距离 |
-| topFollow       | Boolean          | 否   | 默认false; 是否跟随上一个元素之后；true则top为当前模块与上一个模块顶部间距 |
-| right           | Number(单位:rpx)   | 否   | 离画布右边距离 left存在则right无效 |
-| bottom          | Number(单位:rpx)   | 否   | 离画布底部距离 top存在 则bottom无效 |
-| radius          | Number(单位:rpx)   | 是   | 半径 半径大小 |
-| num             | Int              | 是   | 边数 多边形边数 默认3 |
-| rotate          | Int              | 否   | 旋转角度 |
-| borderWidth     | Number(单位:rpx)   | 否   | 边框宽度 |
-| borderColor     | String           | 否   | 边框颜色 |
-| backgroundColor | String           | 否   | 背景色 |
-| backgroundImage | String           | 否   | 背景图片路径 |
-| backgroundRepeat| String           | 否   | 背景图片覆盖方式 默认no-repeat |
-| shadowColor     | String           | 否   | 投影颜色 |
-| shadowOffsetX   | Number           | 否   | X轴偏移 依赖shadowColor是否有值 |
-| shadowOffsetY   | Number           | 否   | Y轴偏移 依赖shadowColor是否有值 |
-| shadowBlur      | Number           | 否   | 虚化程度 依赖shadowColor是否有值 |
-| linearGradient  | String           | 否   | 线性渐变区间坐标（x0, y0, x1, y1）|
-| radialGradient  | String           | 否   | 镜像渐变区间坐标（x0, y0, r0, x1, y1, r0）|
-| gradientStops   | Array            | 否   | 渐变区间颜色值设定[[0, "#fff"],[200, "rgba(0, 0, 0, 0.5)"]] |
-| opacity         | Number           | 否   | 默认值1.0 |
+如果borderRadius的值大于最短边一半 则会绘制成圆形；也可以通过设置字段radius（int 半径大小）、num（int 边数）、rotate（int 旋转角度）来绘制圆形、正多边形
