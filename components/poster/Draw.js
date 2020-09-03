@@ -680,7 +680,8 @@ class Draw {
         shadowBlur = Math.round(shadowBlur);
         lineWidth = Math.round(lineWidth);*/
 
-
+        //清空画布
+        context.clearRect(0, 0, canvas.width, canvas.height);
         //绘制内容选择
         if (name === "block") {
             switch (true) {

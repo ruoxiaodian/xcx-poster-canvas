@@ -112,9 +112,8 @@ Page({
             borderRadius: 200,
         }]
         Poster.create(drawData).then(function (res) {
-            wx.navigateTo({
-              url: "/pages/test/test?url=" + res
-            })
+            console.log("绘制成功")
+            console.log(res)
         }).catch(function (err) {
             console.log(err.message)
         })
