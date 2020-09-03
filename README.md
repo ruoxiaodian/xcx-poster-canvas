@@ -2,16 +2,17 @@
 小程序海报生成器 --- 像在写css一样去配置
 
 ## 概述
-在canvas中元素之间距离都是坐标系间的关系；假定每个元素都是block且position:absolute; 那么left、top、right、bottom这些位置字段跟css中的思路就很接近了；
+在canvas中元素之间距离都是坐标系间的关系；假定每个元素都是绝对定位的block；那么left、top、right、bottom这些位置字段跟css中的思路就很接近了；
 相对复杂的属性比如投影、渐变参考的是canvas原生写法；详见 [canvas 原生写法](https://airingursb.gitbooks.io/canvas/content/07.html)；
 xcx-poster-canvas优势在于配置顺序与绘制顺序是一致的，从低到表；先绘制在最底层；与绝对定位下的css实现方式一致
 
 ## 尺寸说明
-canvas 在设置超过750rpx的css宽度精度大于2时会报"native buffer exceed size limit"错误； 所以默认设定canvas css宽750rpx、高1334rpx、精度比pixelRatio = 2；
-canvas尺寸越大精度越高 则生成的图片体积越大、占用内存越高；导致生成失败；
+默认设定canvas css宽750rpx、高1334rpx、精度比pixelRatio = 2；小程序canvas在设置超过750rpx的css宽度，精度大于2时会报"native buffer exceed size limit"错误；
+canvas尺寸越大、精度越高 则生成的图片体积越大、占用内存越高；容易造成生成图片失败；
 
 ## 示例效果
 <img width="300" src="https://github.com/ruoxiaodian/xcx-poster-canvas/blob/master/images/demo.jpg"></img>
+
 背景色是通过block配置渐变实现；
 
 ## 绘制数据信息（Array）;以下是每个数组项的具体配置信息
