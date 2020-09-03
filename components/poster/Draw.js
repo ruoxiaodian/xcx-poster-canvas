@@ -114,6 +114,7 @@ class Draw {
             context.lineTo(x, y);
             context.closePath();
         } else { //圆角矩形
+            borderRadius > Math.min(width, height) / 2 ? borderRadius = Math.min(width, height) / 2 : null;
             context.arc(x + borderRadius, y + borderRadius, borderRadius, Math.PI, Math.PI * 3 / 2);
             context.lineTo(x + width - borderRadius, y);
             context.arc(x + width - borderRadius, y + borderRadius, borderRadius, Math.PI * 3 / 2, Math.PI * 2);
@@ -212,59 +213,18 @@ class Draw {
         y += radius;
         context.save();
         context.beginPath();
-        if (borderRadius === 0) { //没有圆角
-            if (rotate === 0) {
-                for (let i = 0; i < num; i ++) {
-                    let pX = x + Math.sin(radian * i) * radius;
-                    let pY = y - Math.cos(radian * i) * radius
-                    context.lineTo(pX, pY);
-                }
-            } else {  //有旋转角度
-                let rotateRadian = rotate / 180 * Math.PI; //旋转角度
-                for (let i = 0; i < num; i ++) {
-                    let pX = x + Math.sin(radian * i + rotateRadian) * radius;
-                    let pY = y - Math.cos(radian * i + rotateRadian) * radius
-                    context.lineTo(pX, pY);
-                }
+        if (rotate === 0) {
+            for (let i = 0; i < num; i ++) {
+                let pX = x + Math.sin(radian * i) * radius;
+                let pY = y - Math.cos(radian * i) * radius
+                context.lineTo(pX, pY);
             }
-        } else { //有圆角
-            if (rotate === 0) {
-                // for (let i = 0; i < num + 1; i ++) {
-                //     let inclination = (180 - angle) / 2;
-                //     let pX = x + Math.sin(radian * i) * radius;
-                //     let pY = y - Math.cos(radian * i) * radius;
-                //     let pX0 = pX - Math.cos(inclination / 180 * Math.PI) * borderRadius;
-                //     let pY0 = pY + Math.sin(inclination / 180 * Math.PI) * borderRadius;
-                //     let pX1 = pX - Math.cos((inclination + angle) / 180 * Math.PI) * borderRadius;
-                //     let pY1 = pY + Math.sin((inclination + angle) / 180 * Math.PI) * borderRadius;
-                //     // context.arcTo(pX0, pY0, pX1, pY1, borderRadius)
-                //     context.lineTo(pX0,pY0)
-                //     context.lineTo(pX1,pY1)
-                // }
-                let p0x = x + Math.sin(radian * 0) * radius;
-                let p0y = y - Math.cos(radian * 0) * radius;
-                let p1x = x + Math.sin(radian * 1) * radius;
-                let p1y = y - Math.cos(radian * 1) * radius;
-                let p2x = x + Math.sin(radian * 2) * radius;
-                let p2y = y - Math.cos(radian * 2) * radius;
-                let pAngle = (num - 2) * 180 / num; //多边形每个角的角度值
-                let len = borderRadius / Math.tan((pAngle / 2) / 180 * Math.PI); //顶点离标记点的距离
-                let difX = len * Math.sin((pAngle / 2) / 180 * Math.PI); //x坐标差值
-                let difY = len * Math.cos((pAngle / 2) / 180 * Math.PI); //y差值
-                context.lineTo(p0x - difX, p0y + difY)
-                context.lineTo(p0x + difX, p0y + difY)
-                context.lineTo(p1x - difX, p1y - difY)
-                context.lineTo(p1x - len, p1y)
-                context.lineTo(p2x + len, p2y)
-                context.lineTo(p2x + difX, p2y - difY)
-
-            } else {
-                let rotateRadian = rotate / 180 * Math.PI; //旋转角度
-                for (let i = 0; i < num; i ++) {
-                    let pX = x + Math.sin(radian * i + rotateRadian) * radius;
-                    let pY = y - Math.cos(radian * i + rotateRadian) * radius
-                    context.lineTo(pX, pY);
-                }
+        } else {  //有旋转角度
+            let rotateRadian = rotate / 180 * Math.PI; //旋转角度
+            for (let i = 0; i < num; i ++) {
+                let pX = x + Math.sin(radian * i + rotateRadian) * radius;
+                let pY = y - Math.cos(radian * i + rotateRadian) * radius
+                context.lineTo(pX, pY);
             }
         }
         context.closePath();
@@ -424,39 +384,22 @@ class Draw {
         let {image, sx, sy, sw, sh, dw, dh} = await this._viewMode(src, width, height, mode);
         context.save();
         if (lineWidth || borderRadius) {
-            if (borderRadius > Math.min(dw, dh) / 2) { //宽高最小值的一半 认为是绘制圆形
-                this.drawArc({
-                    x: dx,
-                    y: dy,
-                    radius: Math.abs(Math.min(dw, dh) / 2),
-                    shadowColor,
-                    shadowOffsetX,
-                    shadowOffsetY,
-                    shadowBlur,
-                    lineWidth,
-                    strokeStyle,
-                    fillStyle,
-                    opacity
-                })
-                context.clip();
-            } else { //圆角矩形
-                this.drawRect({
-                    x: dx,
-                    y: dy,
-                    width: dw,
-                    height: dh,
-                    borderRadius,
-                    shadowColor,
-                    shadowOffsetX,
-                    shadowOffsetY,
-                    shadowBlur,
-                    lineWidth,
-                    strokeStyle,
-                    fillStyle,
-                    opacity
-                })
-                context.clip();
-            }
+            this.drawRect({
+                x: dx,
+                y: dy,
+                width: dw,
+                height: dh,
+                borderRadius,
+                shadowColor,
+                shadowOffsetX,
+                shadowOffsetY,
+                shadowBlur,
+                lineWidth,
+                strokeStyle,
+                fillStyle,
+                opacity
+            })
+            context.clip();
         } else {
             if (shadowColor) {
                 context.shadowColor = shadowColor;
@@ -545,14 +488,33 @@ class Draw {
     _getImageInstance (src) {
         const that = this;
         return new Promise(function (resolve, reject) {
-            let image = that.canvas.createImage();
             if (!src) {reject(new Error("图片路径不能为空"))}
-            image.src = src;
-            image.onload = function () {
-                resolve(image)
-            }
-            image.onerror = function () {
-                reject(new Error(src + "加载失败"))
+            if (src.indexOf("https") !== 0) { //本地图片
+                let image = that.canvas.createImage();
+                image.src = src;
+                image.onload = function () {
+                    resolve(image)
+                }
+                image.onerror = function (err) {
+                    reject(err)
+                }
+            } else {
+                wx.getImageInfo({
+                    src: src,
+                    success: function (res) {
+                        let image = that.canvas.createImage();
+                        image.src = res.path;
+                        image.onload = function () {
+                            resolve(image)
+                        }
+                        image.onerror = function (err) {
+                            reject(err)
+                        }
+                    },
+                    fail: function (err) {
+                        reject(err)
+                    }
+                })
             }
         })
     }

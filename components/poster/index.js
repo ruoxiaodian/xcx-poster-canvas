@@ -20,7 +20,7 @@ Component({
         },
         showLoading: { //是否显示loading效果
             type: Boolean,
-            value: true
+            value: false
         },
     },
 

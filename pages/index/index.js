@@ -29,7 +29,7 @@ Page({
             textAlign: "center"
         }, {
             name: "image",
-            src: "/images/test.jpg",
+            src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599144443472&di=78010d5f898a63c1066cec0607fb4798&imgtype=0&src=http%3A%2F%2Fa3.att.hudong.com%2F64%2F52%2F01300000407527124482522224765.jpg",
             left: 30,
             width: 750 - 90,
             height: 750 - 90,
@@ -77,7 +77,7 @@ Page({
             height: 300,
             backgroundColor: "#fff",
             linearGradient: "0, 0, 0, 500",
-            gradientStops: [[0, "#fff"], [1, "rgba(255, 255, 255, 0.8)"]],
+            gradientStops: [[0, "#fff"], [1, "rgba(255, 255, 255, 0.95)"]],
             borderRadius: 60,
         }, {
             name: "text",
