@@ -32,7 +32,7 @@ canvas尺寸越大、精度越高 则生成的图片体积越大、占用内存�
 | name            | String           | 是   | 内容块名称 图片为name: "block" |
 | left            | Number(单位:rpx)  | 否   | 离画布左边距离 |
 | top             | Number(单位:rpx)  | 否   | 离画布底部距离 |
-| topFollow       | Boolean          | 否   | 默认false；是否跟随上一个元素之后；true则top为当前模块与上一个模块底部间距 |
+| topFollow       | Boolean          | 否   | 默认false；是否跟随上一个元素之后；true则top为当前块与上一个块底部间距 |
 | right           | Number(单位:rpx)  | 否   | 离画布右边距离 left存在则right无效 |
 | bottom          | Number(单位:rpx)  | 否   | 离画布底部距离 top存在 则bottom无效 |
 | width           | Number(单位:rpx)  | 否   | 宽度 |
@@ -63,7 +63,7 @@ canvas尺寸越大、精度越高 则生成的图片体积越大、占用内存�
 | src             | String           | 是   | 图片地址 |
 | left            | Number(单位:rpx)  | 否   | 图片离画布左边距离 |
 | top             | Number(单位:rpx)  | 否   | 图片离画布底部距离 |
-| topFollow       | Boolean          | 否   | 默认false；是否跟随上一个元素之后；true则top为当前模块与上一个模块底部间距 |
+| topFollow       | Boolean          | 否   | 默认false；是否跟随上一个元素之后；true则top为当前块与上一个块底部间距 |
 | right           | Number(单位:rpx)  | 否   | 图片画布右边距离 left存在则right无效 |
 | bottom          | Number(单位:rpx)  | 否   | 图片离画布底部距离 top存在 则bottom无效 |
 | width           | Number(单位:rpx)  | 是   | 图片宽度 |
@@ -85,7 +85,7 @@ canvas尺寸越大、精度越高 则生成的图片体积越大、占用内存�
 | text            | String           | 是   | 文本内容 |
 | left            | Number(单位:rpx)  | 否   | 离画布左边距离 |
 | top             | Number(单位:rpx)  | 否   | 离画布底部距离 |
-| topFollow       | Boolean          | 否   | 默认false；是否跟随上一个元素之后；true则top为当前模块与上一个模块底部间距 |
+| topFollow       | Boolean          | 否   | 默认false；是否跟随上一个元素之后；true则top为当前块与上一个块底部间距 |
 | right           | Number(单位:rpx)  | 否   | 离画布右边距离 left存在则right无效 |
 | bottom          | Number(单位:rpx)  | 否   | 离画布底部距离 top存在 则bottom无效 |
 | width           | Number(单位:rpx)  | 否   | 文本内容宽度  超出宽度则换行 |
