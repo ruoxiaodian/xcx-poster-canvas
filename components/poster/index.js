@@ -14,6 +14,10 @@ Component({
             type: Number,
             value: 1334
         },
+        pixelRatio: { //精度 理论上越大越清晰 但同样生成的图片越大 内存占用很大 会导致生成失败
+            type: Number,
+            value: 2
+        },
         showLoading: { //是否显示loading效果
             type: Boolean,
             value: true
@@ -63,7 +67,8 @@ Component({
         init: function (canvas) {
             const width = this.data.width;
             const height = this.data.height;
-            const drawInstance = new Draw(canvas, width, height);
+            const pixelRatio = this.data.pixelRatio;
+            const drawInstance = new Draw(canvas, width, height, pixelRatio);
             this.setData({
                 _pxWidth: parseInt(width * drawInstance.factor),
                 _pxHeight: parseInt(height * drawInstance.factor)
@@ -77,18 +82,23 @@ Component({
         * */
         create: async function (data) {
             const instance = this._drawInstance;
-            let res = {};
+            const showLoading = this.data.showLoading;
+            let singleRes = {};  //保存每次绘制返回尺寸
+            showLoading ? wx.showLoading({title: "海报生成中...", mask: true}): null;
+            instance.clear(); //绘制前清空画布
             for (let i = 0; i < data.length; i ++) {
                 let single = data[i];
                 if (single.topFollow) {
-                    single.top = (res.top || 0) + (single.top || 0)
+                    single.top = (singleRes.top || 0) + (single.top || 0)
                 }
                 if (single.leftFollow) {
-                    single.left = (res.left || 0) + (single.left || 0)
+                    single.left = (singleRes.left || 0) + (single.left || 0)
                 }
-                res = await instance.draw(single);
+                singleRes = await instance.draw(single);
             }
-            return await this._canvasToTempFilePath()
+            let tempFilePath = await this._canvasToTempFilePath();
+            showLoading ? wx.hideLoading() : null;
+            return tempFilePath
         },
 
         /*

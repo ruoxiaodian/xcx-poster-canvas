@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-      "components-poster": "xcx-poster-canvas/index"
+      "components-poster": "/components/poster/index"
   }
 }

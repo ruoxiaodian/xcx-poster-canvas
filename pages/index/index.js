@@ -1,5 +1,5 @@
 //index.js
-import Poster from "../../miniprogram_npm/xcx-poster-canvas/Poster"
+import Poster from "../../components/poster/Poster"
 //获取应用实例
 Page({
     data: {

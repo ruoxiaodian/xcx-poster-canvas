@@ -1,7 +1,0 @@
-<!--components/poster/index.wxml-->
-<canvas
-        id="myCanvas"
-        class="canvas"
-        type="2d"
-        style="{{'width:' + _pxWidth + 'px;' + 'height:' + _pxHeight + 'px'}}"></canvas>
-

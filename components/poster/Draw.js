@@ -557,6 +557,14 @@ class Draw {
         })
     }
 
+    /*
+    * 清空画布
+    * */
+    clear () {
+        const context = this.context;
+        const canvas = this.canvas;
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    }
 
     /*
     * 导入数据处理
@@ -680,8 +688,6 @@ class Draw {
         shadowBlur = Math.round(shadowBlur);
         lineWidth = Math.round(lineWidth);*/
 
-        //清空画布
-        context.clearRect(0, 0, canvas.width, canvas.height);
         //绘制内容选择
         if (name === "block") {
             switch (true) {

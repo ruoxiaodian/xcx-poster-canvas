@@ -1,3 +1,4 @@
-
+<view style="position: absolute; width: 100px; height: 100px; background-color: blue"></view>
+<view style="position: absolute; width: 50px; height: 150px; background-color: red"></view>
 <components-poster id="poster"></components-poster>
 <view style="position: absolute; left: 0; bottom: 30px; width: 100%; text-align: center; z-index: 2" bindtap="bindCreatePoster">生成海报</view>
