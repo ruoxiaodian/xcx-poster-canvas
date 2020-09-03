@@ -6,6 +6,15 @@
 相对复杂的属性比如投影、渐变参考的是canvas原生写法；详见 [canvas 原生写法](https://airingursb.gitbooks.io/canvas/content/07.html)；
 xcx-poster-canvas优势在于配置顺序与绘制顺序是一致的，从低到表；先绘制在最底层；与绝对定位下的css实现方式一致
 
+## 使用说明
+    1. npm 安装 （安装完成后--使用小程序开发工具构建npm 或者 手动拷贝）
+    注：组件使用es6的async、await同步操作 请使用小程序开发工具的增加编译功能； 小程序开发工具--点击右侧"详情"--勾选"增加编译"
+
+        npm i xcx-poster-canvas -S --production
+
+    2. 直接拉取拷贝/components/poster目录
+
+
 ## 尺寸说明
 默认设定canvas css宽750rpx、高1334rpx、精度比pixelRatio = 2；小程序canvas在设置超过750rpx的css宽度，精度大于2时会报"native buffer exceed size limit"错误；
 canvas尺寸越大、精度越高 则生成的图片体积越大、占用内存越高；容易造成生成图片失败；
@@ -14,15 +23,6 @@ canvas尺寸越大、精度越高 则生成的图片体积越大、占用内存�
 <img width="300" src="https://github.com/ruoxiaodian/xcx-poster-canvas/blob/master/images/demo.jpg"></img>
 
 背景色是通过block配置渐变实现；
-
-## 使用说明
-1. npm 安装 （安装完成后--使用小程序开发工具构建npm 或者 手动拷贝）
-注：组件使用es6的async、await同步操作 请使用小程序开发工具的增加编译功能； 小程序开发工具--点击右侧"详情"--勾选"增加编译"
-
-    npm i xcx-poster-canvas -S --production
-
-2. 直接拉取拷贝/components/poster目录
-
 
 ## 绘制数据（Array）；以下是每个数组项的配置字段
 ### Block块元素配置
