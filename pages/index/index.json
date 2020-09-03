@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-      "components-poster": "/components/poster/index",
-      "van-button": "@vant/weapp/button/index"
+      "components-poster": "xcx-poster-canvas/index"
   }
 }
