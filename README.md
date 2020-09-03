@@ -13,75 +13,20 @@ canvas 在设置超过750rpx的css宽度精度大于2时会报"native buffer exc
 
 ## 绘制数据信息（Array）;以下是每个数组项的具体配置信息
 
-### 图片配置(Object)
-
-| 字段名           | 类型              | 必填  | 描述                                    |
-| --------------- | ---------------- | ---- | -------------------------------------- |
-| name            | String           | 是   | 内容块名称 图片为name: "image" |
-| src             | String           | 是   | 图片地址 |
-| left            | Number(单位:rpx)   | 否   | 图片离画布左边距离 |
-| top             | Number(单位:rpx)   | 否   | 图片离画布底部距离 |
-| topFollow       | Boolean          | 否   | 默认false; 是否跟随上一个元素之后；true则top为当前模块与上一个模块顶部间距 |
-| right           | Number(单位:rpx)   | 否   | 图片画布右边距离 left存在则right无效 |
-| bottom          | Number(单位:rpx)   | 否   | 图片离画布底部距离 top存在 则bottom无效 |
-| width           | Number(单位:rpx)   | 是   | 图片宽度 |
-| height          | Number(单位:rpx)   | 是   | 图片高度 |
-| borderRadius    | Number(单位:rpx)   | 否   | 圆角 如果圆角大于最小边的一半 则为圆形|
-| borderWidth     | Number(单位:rpx)   | 否   | 边框宽度 |
-| borderColor     | String           | 否   | 边框颜色 |
-| shadowColor     | String           | 否   | 投影颜色 |
-| shadowOffsetX   | Number           | 否   | X轴偏移 依赖shadowColor是否有值 |
-| shadowOffsetY   | Number           | 否   | Y轴偏移 依赖shadowColor是否有值 |
-| shadowBlur      | Number           | 否   | 虚化程度 依赖shadowColor是否有值 |
-| opacity         | Number           | 否   | 默认值1.0 |
-
-
-### 文本配置(Object)
-
-| 字段名           | 类型              | 必填  | 描述                                   |
-| --------------- | ---------------------- | ---- | -------------------------------------- |
-| name            | String           | 是   | 内容块名称 文本为name: "text" |
-| text            | String           | 是   | 文本内容 |
-| left            | Number(单位:rpx)   | 否   | 离画布左边距离 |
-| top             | Number(单位:rpx)   | 否   | 离画布底部距离 |
-| topFollow       | Boolean          | 否   | 默认false; 是否跟随上一个元素之后；true则top为当前模块与上一个模块顶部间距 |
-| right           | Number(单位:rpx)   | 否   | 离画布右边距离 left存在则right无效 |
-| bottom          | Number(单位:rpx)   | 否   | 离画布底部距离 top存在 则bottom无效 |
-| width           | Number(单位:rpx)   | 否   | 文本内容宽度  超出宽度则换行 |
-| fontSize        | String / Number  | 否   | 字体大小 默认20 |
-| fontColor       | String           | 否   | 字体颜色 默认 #000 |
-| fontWeight      | String / Int     | 否   | 文本的粗细 默认normal|
-| fontStyle       | String           | 否   | 文本样式 默认normal|
-| fontFamily      | String           | 否   | 字体 |
-| textAlign       | String           | 否   | 对齐方式 默认left|
-| lineHeight      | Int              | 否   | 字体行高 默认20 |
-| lineNum         | Int              | 否   | 文本内容显示行数限制 |
-| borderWidth     | Number(单位:rpx)   | 否   | 描边宽度 |
-| borderColor     | String           | 否   | 描边颜色 |
-| shadowColor     | String           | 否   | 投影颜色 |
-| shadowOffsetX   | Number           | 否   | X轴偏移 依赖shadowColor是否有值 |
-| shadowOffsetY   | Number           | 否   | Y轴偏移 依赖shadowColor是否有值 |
-| shadowBlur      | Number           | 否   | 虚化程度 依赖shadowColor是否有值 |
-| linearGradient  | String           | 否   | 线性渐变区间坐标（x0, y0, x1, y1）|
-| radialGradient  | String           | 否   | 镜像渐变区间坐标（x0, y0, r0, x1, y1, r0）|
-| gradientStops   | Array            | 否   | 渐变区间颜色值设定[[0, "#fff"],[200, "rgba(0, 0, 0, 0.5)"]]|
-| opacity         | Number           | 否   | 默认值1.0 |
-
-
 ### Block块元素配置
 
 | 字段名           | 类型              | 必填  | 描述                                    |
 | --------------- | ---------------- | ---- | -------------------------------------- |
 | name            | String           | 是   | 内容块名称 图片为name: "block" |
-| left            | Number(单位:rpx)   | 否   | 离画布左边距离 |
-| top             | Number(单位:rpx)   | 否   | 离画布底部距离 |
-| topFollow       | Boolean          | 否   | 默认false; 是否跟随上一个元素之后；true则top为当前模块与上一个模块顶部间距 |
-| right           | Number(单位:rpx)   | 否   | 离画布右边距离 left存在则right无效 |
-| bottom          | Number(单位:rpx)   | 否   | 离画布底部距离 top存在 则bottom无效 |
-| width           | Number(单位:rpx)   | 否   | 宽度 |
-| height          | Number(单位:rpx)   | 否   | 高度 |
-| borderRadius    | Number(单位:rpx)   | 否   | 圆角 |
-| borderWidth     | Number(单位:rpx)   | 否   | 边框宽度 |
+| left            | Number(单位:rpx)  | 否   | 离画布左边距离 |
+| top             | Number(单位:rpx)  | 否   | 离画布底部距离 |
+| topFollow       | Boolean          | 否   | 默认false；是否跟随上一个元素之后；true则top为当前模块与上一个模块底部间距 |
+| right           | Number(单位:rpx)  | 否   | 离画布右边距离 left存在则right无效 |
+| bottom          | Number(单位:rpx)  | 否   | 离画布底部距离 top存在 则bottom无效 |
+| width           | Number(单位:rpx)  | 否   | 宽度 |
+| height          | Number(单位:rpx)  | 否   | 高度 |
+| borderRadius    | Number(单位:rpx)  | 否   | 圆角 |
+| borderWidth     | Number(单位:rpx)  | 否   | 边框宽度 |
 | borderColor     | String           | 否   | 边框颜色 |
 | backgroundColor | String           | 否   | 背景色 |
 | backgroundImage | String           | 否   | 背景图片路径 |
@@ -97,3 +42,56 @@ canvas 在设置超过750rpx的css宽度精度大于2时会报"native buffer exc
 | opacity         | Number           | 否   | 默认值1.0 |
 
 如果borderRadius的值大于最短边一半 则会绘制成圆形；也可以通过设置字段radius（int 半径大小）、num（int 边数）、rotate（int 旋转角度）来绘制圆形、正多边形
+
+### 图片配置(Object)
+
+| 字段名           | 类型              | 必填  | 描述                                    |
+| --------------- | ---------------- | ---- | -------------------------------------- |
+| name            | String           | 是   | 内容块名称 图片为name: "image" |
+| src             | String           | 是   | 图片地址 |
+| left            | Number(单位:rpx)  | 否   | 图片离画布左边距离 |
+| top             | Number(单位:rpx)  | 否   | 图片离画布底部距离 |
+| topFollow       | Boolean          | 否   | 默认false；是否跟随上一个元素之后；true则top为当前模块与上一个模块底部间距 |
+| right           | Number(单位:rpx)  | 否   | 图片画布右边距离 left存在则right无效 |
+| bottom          | Number(单位:rpx)  | 否   | 图片离画布底部距离 top存在 则bottom无效 |
+| width           | Number(单位:rpx)  | 是   | 图片宽度 |
+| height          | Number(单位:rpx)  | 是   | 图片高度 |
+| borderRadius    | Number(单位:rpx)  | 否   | 圆角 如果圆角大于最小边的一半 则为圆形|
+| borderWidth     | Number(单位:rpx)  | 否   | 边框宽度 |
+| borderColor     | String           | 否   | 边框颜色 |
+| shadowColor     | String           | 否   | 投影颜色 |
+| shadowOffsetX   | Number           | 否   | X轴偏移 依赖shadowColor是否有值 |
+| shadowOffsetY   | Number           | 否   | Y轴偏移 依赖shadowColor是否有值 |
+| shadowBlur      | Number           | 否   | 虚化程度 依赖shadowColor是否有值 |
+| opacity         | Number           | 否   | 默认值1.0 |
+
+### 文本配置(Object)
+
+| 字段名           | 类型              | 必填  | 描述                                   |
+| --------------- | ---------------------- | ---- | -------------------------------------- |
+| name            | String           | 是   | 内容块名称 文本为name: "text" |
+| text            | String           | 是   | 文本内容 |
+| left            | Number(单位:rpx)  | 否   | 离画布左边距离 |
+| top             | Number(单位:rpx)  | 否   | 离画布底部距离 |
+| topFollow       | Boolean          | 否   | 默认false；是否跟随上一个元素之后；true则top为当前模块与上一个模块底部间距 |
+| right           | Number(单位:rpx)  | 否   | 离画布右边距离 left存在则right无效 |
+| bottom          | Number(单位:rpx)  | 否   | 离画布底部距离 top存在 则bottom无效 |
+| width           | Number(单位:rpx)  | 否   | 文本内容宽度  超出宽度则换行 |
+| fontSize        | String / Number  | 否   | 字体大小 默认20 |
+| fontColor       | String           | 否   | 字体颜色 默认 #000 |
+| fontWeight      | String / Int     | 否   | 文本的粗细 默认normal|
+| fontStyle       | String           | 否   | 文本样式 默认normal|
+| fontFamily      | String           | 否   | 字体 |
+| textAlign       | String           | 否   | 对齐方式 默认left|
+| lineHeight      | Int              | 否   | 字体行高 默认20 |
+| lineNum         | Int              | 否   | 文本内容显示行数限制 |
+| borderWidth     | Number(单位:rpx)  | 否   | 描边宽度 |
+| borderColor     | String           | 否   | 描边颜色 |
+| shadowColor     | String           | 否   | 投影颜色 |
+| shadowOffsetX   | Number           | 否   | X轴偏移 依赖shadowColor是否有值 |
+| shadowOffsetY   | Number           | 否   | Y轴偏移 依赖shadowColor是否有值 |
+| shadowBlur      | Number           | 否   | 虚化程度 依赖shadowColor是否有值 |
+| linearGradient  | String           | 否   | 线性渐变区间坐标（x0, y0, x1, y1）|
+| radialGradient  | String           | 否   | 镜像渐变区间坐标（x0, y0, r0, x1, y1, r0）|
+| gradientStops   | Array            | 否   | 渐变区间颜色值设定[[0, "#fff"],[200, "rgba(0, 0, 0, 0.5)"]]|
+| opacity         | Number           | 否   | 默认值1.0 |
