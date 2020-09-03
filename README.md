@@ -7,12 +7,12 @@
 xcx-poster-canvas优势在于配置顺序与绘制顺序是一致的，从低到表；先绘制在最底层；与绝对定位下的css实现方式一致
 
 ## 使用说明
-    1. npm 安装 （安装完成后--使用小程序开发工具构建npm 或者 手动拷贝）
-    注：组件使用es6的async、await同步操作 请使用小程序开发工具的增加编译功能； 小程序开发工具--点击右侧"详情"--勾选"增加编译"
+#### 方式一. npm 安装 （安装完成后--使用小程序开发工具构建npm 或者 手动拷贝）
+注：组件使用es6的async、await同步操作 请使用小程序开发工具的增加编译功能； 小程序开发工具--点击右侧"详情"--勾选"增加编译"
 
-        npm i xcx-poster-canvas -S --production
+    npm i xcx-poster-canvas -S --production
 
-    2. 直接拉取拷贝/components/poster目录
+#### 方式二. 直接拉取拷贝/components/poster目录
 
 
 ## 尺寸说明
