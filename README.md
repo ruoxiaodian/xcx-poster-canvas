@@ -11,7 +11,8 @@ canvas 在设置超过750rpx的css宽度精度大于2时会报"native buffer exc
 ## 示例
 <img width="300" src="https://github.com/ruoxiaodian/xcx-poster-canvas/blob/master/images/demo.jpg"></img>
 
-## 绘制数据配置信息（Array）
+## 绘制数据信息（Array）;以下是每个数组项的具体配置信息
+
 ### 图片配置(Object)
 
 | 字段名           | 类型              | 必填  | 描述                                    |
