@@ -17,7 +17,7 @@ const Poster = {
             };
         }
     },
-    create: function (data, id, that) {
+    create: function (data, that, id) {
         const poster = this.getComponentId(id, that);
         if (!poster) {
             console.error('请设置组件的id="poster"!!!');

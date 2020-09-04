@@ -22,6 +22,10 @@ Component({
             type: Boolean,
             value: true
         },
+        debug: { //调试
+            type: Boolean,
+            value: false
+        }
     },
 
     /**
