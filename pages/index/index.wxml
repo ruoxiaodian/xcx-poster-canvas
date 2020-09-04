@@ -1,4 +1,4 @@
-<components-poster id="poster"></components-poster>
+<components-poster id="poster" debug></components-poster>
 <block wx:if="{{!url}}">
     <view style="position: absolute; left: 0; bottom: 30px; width: 100%; text-align: center; z-index: 2" bindtap="bindCreatePoster">生成海报</view>
 </block>

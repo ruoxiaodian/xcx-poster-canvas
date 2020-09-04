@@ -33,7 +33,7 @@ Page({
             textAlign: "center"
         }, {
             name: "image",
-            src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599144443472&di=78010d5f898a63c1066cec0607fb4798&imgtype=0&src=http%3A%2F%2Fa3.att.hudong.com%2F64%2F52%2F01300000407527124482522224765.jpg",
+            src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599206639296&di=430daad0dac4eabde8774f0770ecabfd&imgtype=0&src=http%3A%2F%2Ffiles.bbs.tl.changyou.com%2Fdata%2Fattachment%2Fforum%2F201507%2F20%2F161520i5zwef38nnnh1c5e.jpeg",
             left: 30,
             width: 750 - 90,
             height: 750 - 90,
