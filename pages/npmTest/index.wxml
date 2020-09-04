@@ -1,0 +1,5 @@
+<!--pages/npmTest/index.wxml-->
+<xcx-poster-canvas id="poster"></xcx-poster-canvas>
+<block wx:if="{{url}}">
+    <image src="{{url}}" mode="widthFix" style="width: 100%; height: auto"></image>
+</block>

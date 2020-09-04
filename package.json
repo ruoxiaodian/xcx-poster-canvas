@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "xcx-poster-canvas": "^1.0.0"
+    "xcx-poster-canvas": "^2.0.0"
   }
 }

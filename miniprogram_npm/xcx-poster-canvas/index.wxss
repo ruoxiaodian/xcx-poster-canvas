@@ -1,0 +1,8 @@
+/* components/poster/index.wxss */
+.canvas{
+    position: fixed;
+    /*border: 1px solid red;*/
+    box-sizing: border-box;
+    left: 9999px;
+    top: 0;
+}
