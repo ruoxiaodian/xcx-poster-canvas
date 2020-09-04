@@ -117,7 +117,7 @@ Page({
             console.log("绘制成功")
             console.log(res)
         }).catch(function (err) {
-            console.log(err.message)
+            console.log(err)
         })
     }
 })

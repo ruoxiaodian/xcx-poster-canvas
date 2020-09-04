@@ -651,103 +651,100 @@ class Draw {
         lineWidth = Math.round(lineWidth);*/
 
         //绘制内容选择
-        if (name === "block") {
-            switch (true) {
-                case radius > 0 && !data.num: //绘制圆形
-                    return this.drawArc({
-                        x,
-                        y,
-                        radius,
-                        startAngle: data.startAngle,
-                        endAngle: data.endAngle,
-                        anticlockwise: data.anticlockwise,
-                        shadowColor,
-                        shadowOffsetX,
-                        shadowOffsetY,
-                        shadowBlur,
-                        lineWidth,
-                        strokeStyle,
-                        fillStyle,
-                        opacity
-                    })
-                case width > 0 && height > 0 && !radius: //绘制方形
-                    return this.drawRect({
-                        x,
-                        y,
-                        width,
-                        height,
-                        borderRadius,
-                        hollowWidth,
-                        shadowColor,
-                        shadowOffsetX,
-                        shadowOffsetY,
-                        shadowBlur,
-                        lineWidth,
-                        strokeStyle,
-                        fillStyle,
-                        opacity
-                    })
-                case radius > 0 && !!data.num: //绘制多边形
-                    return this.drawPolygon({
-                        x,
-                        y,
-                        num: data.num,
-                        radius,
-                        rotate: data.rotate,
-                        shadowColor,
-                        shadowOffsetX,
-                        shadowOffsetY,
-                        shadowBlur,
-                        lineWidth,
-                        strokeStyle,
-                        fillStyle,
-                        opacity
-                    })
-                default:
-
-                    break
-            }
-        } else if (name === "text") {
-            return this.drawText({
-                x,
-                y,
-                width,
-                text: data.text,
-                fontSize,
-                lineHeight,
-                fontWeight: data.fontWeight,
-                lineNum: data.lineNum,
-                fontStyle: data.fontStyle,
-                fontFamily: data.fontFamily,
-                textAlign: data.textAlign,
-                textBaseline: data.textBaseline,
-                shadowColor,
-                shadowOffsetX,
-                shadowOffsetY,
-                shadowBlur,
-                lineWidth,
-                strokeStyle,
-                fillStyle,
-                opacity
-            })
-        } else if (name === "image") {
-            return await this.drawImage({
-                src: data.src,
-                x,
-                y,
-                width,
-                height,
-                mode: data.mode,
-                borderRadius,
-                shadowColor,
-                shadowOffsetX,
-                shadowOffsetY,
-                shadowBlur,
-                lineWidth,
-                strokeStyle,
-                fillStyle: fillStyle || "#fff", //默认有背景色是为了实现投影
-                opacity
-            })
+        switch (name) {
+            case "block":
+                return this.drawRect({
+                    x,
+                    y,
+                    width,
+                    height,
+                    borderRadius,
+                    hollowWidth,
+                    shadowColor,
+                    shadowOffsetX,
+                    shadowOffsetY,
+                    shadowBlur,
+                    lineWidth,
+                    strokeStyle,
+                    fillStyle,
+                    opacity
+                })
+            case "block-arc":
+                return this.drawArc({
+                    x,
+                    y,
+                    radius,
+                    startAngle: data.startAngle,
+                    endAngle: data.endAngle,
+                    anticlockwise: data.anticlockwise,
+                    shadowColor,
+                    shadowOffsetX,
+                    shadowOffsetY,
+                    shadowBlur,
+                    lineWidth,
+                    strokeStyle,
+                    fillStyle,
+                    opacity
+                })
+            case "block-polygon":
+                return this.drawPolygon({
+                    x,
+                    y,
+                    num: data.num,
+                    radius,
+                    rotate: data.rotate,
+                    shadowColor,
+                    shadowOffsetX,
+                    shadowOffsetY,
+                    shadowBlur,
+                    lineWidth,
+                    strokeStyle,
+                    fillStyle,
+                    opacity
+                })
+            case "image":
+                return await this.drawImage({
+                    src: data.src,
+                    x,
+                    y,
+                    width,
+                    height,
+                    mode: data.mode,
+                    borderRadius,
+                    shadowColor,
+                    shadowOffsetX,
+                    shadowOffsetY,
+                    shadowBlur,
+                    lineWidth,
+                    strokeStyle,
+                    fillStyle: fillStyle || "#fff", //默认有背景色是为了实现投影
+                    opacity
+                })
+            case "text":
+                return this.drawText({
+                    x,
+                    y,
+                    width,
+                    text: data.text,
+                    fontSize,
+                    lineHeight,
+                    fontWeight: data.fontWeight,
+                    lineNum: data.lineNum,
+                    fontStyle: data.fontStyle,
+                    fontFamily: data.fontFamily,
+                    textAlign: data.textAlign,
+                    textBaseline: data.textBaseline,
+                    shadowColor,
+                    shadowOffsetX,
+                    shadowOffsetY,
+                    shadowBlur,
+                    lineWidth,
+                    strokeStyle,
+                    fillStyle,
+                    opacity
+                })
+            default:
+                throw new Error("无效的name值");
         }
     }
 }
