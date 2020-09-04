@@ -33,7 +33,7 @@ Page({
             textAlign: "center"
         }, {
             name: "image",
-            src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599206639296&di=430daad0dac4eabde8774f0770ecabfd&imgtype=0&src=http%3A%2F%2Ffiles.bbs.tl.changyou.com%2Fdata%2Fattachment%2Fforum%2F201507%2F20%2F161520i5zwef38nnnh1c5e.jpeg",
+            src: "/images/test.png",
             left: 30,
             width: 750 - 90,
             height: 750 - 90,
@@ -45,7 +45,7 @@ Page({
             name: "text",
             left: 30,
             top: 20,
-            text: "适当好好安徽省都hi哦扫我好滴哦哈 我哦爱好死哦对吼以后爱好爱好死哦和哦哈我爱好死哦和迪欧好好",
+            text: "【寻丢还拾】小程序意在服务广大热心朋友；通过【寻丢还拾】小程序发布丢物信息或者拾物信息；为寻丢、还拾者提供方便",
             width: 750 - 60,
             fontColor: "#fff",
             fontSize: 28,
