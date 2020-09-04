@@ -75,7 +75,6 @@ Component({
                 _pxHeight: parseInt(height * drawInstance.factor)
             })
             this._drawInstance = drawInstance;
-
         },
 
         /*
