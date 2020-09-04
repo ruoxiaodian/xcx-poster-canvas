@@ -32,7 +32,8 @@ Component({
         _pxWidth: 320,
         _pxHeight: 569
     },
-    _drawData: [],
+    _drawInstance: null, //绘制对象实例
+    _drawData: null, //绘制数据报保存
 
     /*
     * 监听data数据变动
@@ -75,13 +76,23 @@ Component({
                 _pxHeight: parseInt(height * drawInstance.factor)
             })
             this._drawInstance = drawInstance;
+            this._callback ? this._callback() : null //异步处理 在获取canvas实例之前 调用了create方法
         },
 
         /*
         * 创建海报
+        * 需要判断实例化是否完成；如果没有完成则需要等待实例化之后再创建画布
         * */
         create: async function (data) {
+            const that = this;
             const instance = this._drawInstance;
+            if (!instance) {  //异步处理 在获取canvas实例之前 调用了create方法
+                return new Promise(function (resolve) {
+                    that._callback = async function () {
+                        resolve (await that.create(data))
+                    }
+                })
+            }
             const showLoading = this.data.showLoading;
             let singleRes = {};  //保存每次绘制返回尺寸
             showLoading ? wx.showLoading({title: "海报生成中...", mask: true}): null;
@@ -99,6 +110,7 @@ Component({
             let tempFilePath = await this._canvasToTempFilePath();
             showLoading ? wx.hideLoading() : null;
             return tempFilePath
+
         },
 
         /*

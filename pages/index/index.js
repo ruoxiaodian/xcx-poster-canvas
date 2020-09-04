@@ -5,6 +5,9 @@ Page({
     data: {
 
     },
+    onLoad: function () {
+        // this.bindCreatePoster() //异步测试
+    },
     bindCreatePoster: function () {
         const that = this;
         let drawData = [{
