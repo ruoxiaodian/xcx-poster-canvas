@@ -33,7 +33,7 @@ Page({
             textAlign: "center"
         }, {
             name: "image",
-            src: "/images/test.png",
+            src: "/images/test.jpg",
             left: 30,
             width: 750 - 90,
             height: 750 - 90,
@@ -116,7 +116,10 @@ Page({
             borderRadius: 200,
         }]
         Poster.create(drawData).then(function (res) {
-            that.setData({url: res})
+            that.setData({url: res});
+            wx.saveImageToPhotosAlbum({
+                filePath: res
+            })
             console.log("绘制成功")
             console.log(res)
         }).catch(function (err) {
