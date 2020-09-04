@@ -48,7 +48,7 @@ Component({
         attached: function() {
             const that = this;
             const query = wx.createSelectorQuery().in(this);
-            query.select('#myCanvas')
+            query.select("#myCanvas")
                 .fields({ node: true, size: true })
                 .exec((res) => {
                     const canvas = res[0].node;
