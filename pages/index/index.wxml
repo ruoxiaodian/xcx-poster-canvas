@@ -1,8 +1,7 @@
-<block wx:if="{{!url}}">
-    <components-poster id="poster"></components-poster>
-    <view style="position: absolute; left: 0; bottom: 30px; width: 100%; text-align: center; z-index: 2" bindtap="bindCreatePoster">生成海报</view>
-</block>
-<block wx:else>
+
+<components-poster id="poster" pixel-ratio="2" show-loading="{{false}}"></components-poster>
+<view style="position: absolute; left: 0; bottom: 30px; width: 100%; text-align: center; z-index: 2" bindtap="bindCreatePoster">生成海报</view>
+<block wx:if="{{url}}">
     <image src="{{url}}" mode="widthFix" style="width: 100%; height: auto"></image>
 </block>
 

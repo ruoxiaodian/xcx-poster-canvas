@@ -4,12 +4,13 @@ class Draw {
         const factor = systemInfo.screenWidth / 750;
         width = width || systemInfo.screenWidth;
         height = height || systemInfo.screenHeight;
-        this.pixelRatio = pixelRatio;
+        this.pixelRatio = pixelRatio || systemInfo.pixelRatio;
         this.canvas = canvas;
         this.context = canvas.getContext("2d");
-        this.canvas.width = parseInt(width * factor * pixelRatio);  //画布内容宽度
-        this.canvas.height = parseInt(height * factor * pixelRatio);  //画布内容高度
+        this.canvas.width = parseInt(width * factor * this.pixelRatio);  //画布内容宽度
+        this.canvas.height = parseInt(height * factor * this.pixelRatio);  //画布内容高度
         this.factor = factor;
+        // this.context.scale(pixelRatio, pixelRatio)
     }
 
     /*
