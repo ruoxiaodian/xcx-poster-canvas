@@ -83,7 +83,7 @@ Page({
         }, {
             name: "text",
             left: 30,
-            bottom: 170,
+            bottom: 165,
             text: "寻丢还拾、善小为之",
             fontColor: "#57bd6a",
             fontSize: 32,

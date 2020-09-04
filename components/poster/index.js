@@ -14,9 +14,9 @@ Component({
             type: Number,
             value: 1334
         },
-        pixelRatio: { //精度 理论上越大越清晰 但同样生成的图片越大 内存占用很大 会导致生成失败
+        pixelRatio: { //精度 默认使用 systemInfo.pixelRatio
             type: Number,
-            value: 2
+            value: 0
         },
         showLoading: { //是否显示loading效果
             type: Boolean,

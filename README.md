@@ -16,8 +16,8 @@ xcx-poster-canvas优势在于配置顺序与绘制顺序是一致的，从低到
 
 
 ## 尺寸说明
-默认设定canvas css宽750rpx、高1334rpx、精度比pixelRatio = 2；小程序canvas在设置超过750rpx的css宽度，精度大于2时会报"native buffer exceed size limit"错误；
-canvas尺寸越大、精度越高 则生成的图片体积越大、占用内存越高；容易造成生成图片失败； [wxss rpx详细](https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxss.html)
+默认设定canvas css宽750rpx、高1334rpx、精度比pixelRatio = systemInfo.pixelRatio；小程序canvas在设置超过750rpx的css宽度，精度大于2时会报"native buffer exceed size limit"错误；
+canvas尺寸越大、精度越高，生成的图片体积越大、占用内存越高；容易造成生成图片失败； [wxss rpx详细](https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxss.html)
 
 ## 示例效果
 <img width="300" src="https://github.com/ruoxiaodian/xcx-poster-canvas/blob/master/images/demo.jpg"></img>

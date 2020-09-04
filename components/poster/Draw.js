@@ -1,5 +1,5 @@
 class Draw {
-    constructor (canvas, width, height, pixelRatio = 2) {
+    constructor (canvas, width, height, pixelRatio) {
         const systemInfo = wx.getSystemInfoSync();
         const factor = systemInfo.screenWidth / 750;
         width = width || systemInfo.screenWidth;
