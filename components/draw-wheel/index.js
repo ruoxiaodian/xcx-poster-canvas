@@ -1,13 +1,13 @@
 // components/draw-wheel/index.js
-import Wheel from "./Wheel"
+import Wheel from "./Wheel";
 Component({
     /**
      * 组件的属性列表
      */
     properties: {
-        size: {  //绘制图片宽度 rpx
+        size: {  //绘制图片宽度 px
             type: Number,
-            value: 750
+            value: 828
         }
     },
 
@@ -15,7 +15,7 @@ Component({
      * 组件的初始数据
      */
     data: {
-        _pxBoxSize: 750,
+        _pxBoxSize: 828,
     },
 
 
@@ -24,21 +24,7 @@ Component({
     * */
     lifetimes: {
         attached: function() {
-            const that = this;
-            const query = wx.createSelectorQuery().in(that);
-            query.select("#canvas")
-                .fields({ node: true, size: true })
-                .exec((res) => {
-                    const canvas = res[0].node;
-                    let pxBoxSize = that.data._pxBoxSize;
-                    const drawInstance = new Wheel({
-                        canvas,
-                        width: pxBoxSize,
-                        height: pxBoxSize,
-                        colors: ["#fbf6d8", "#ffffff"]
-                    });
-                    drawInstance.init()
-                })
+            this.draw();
         }
     },
 
@@ -47,6 +33,24 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
+        /*
+        * 绘制背景
+        * */
+        draw: function () {
+            const that = this;
+            const query = wx.createSelectorQuery().in(that);
+            query.select("#canvas")
+                .fields({ node: true, size: true })
+                .exec((res) => {
+                    const canvas = res[0].node;
+                    const size = that.data.size;
+                    new Wheel({
+                        canvas: canvas,
+                        width: size,
+                        height: size,
+                        colors: ["#fbf6d8", "#ffffff"]
+                    });
+                })
+        }
     }
 })

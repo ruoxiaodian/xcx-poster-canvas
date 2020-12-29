@@ -1,3 +1,2 @@
 <!--components/draw-wheel/index.wxml-->
-<canvas id="canvas" class="canvas" type="2d" style="{{'width:' + _pxBoxSize + 'rpx; height:' + _pxBoxSize + 'rpx;'}}"></canvas>
-
+<canvas id="canvas" class="canvas" type="2d" style="{{'width:' + size + 'px; height:' + size + 'px;'}}"></canvas>

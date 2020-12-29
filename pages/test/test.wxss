@@ -1,1 +1,21 @@
 /* pages/test/test.wxss */
+page{background-color: #e02739}
+.wheel-container{
+    position: relative;
+    margin: 0 auto;
+    border-radius: 100%;
+    background-color: #ffb90d;
+    overflow: hidden;
+}
+.wheel-container .button{
+    position: absolute;
+    width: 180rpx;
+    height: 180rpx;
+    left: 50%;
+    top: 50%;
+    margin-left: -90rpx;
+    margin-top: -90rpx;
+    background-color: #e02739;
+    border-radius: 100%;
+    z-index: 1;
+}

@@ -5,14 +5,18 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        canvasSize: 750 //rpx
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        const systemInfo = wx.getSystemInfoSync();
+        console.log(systemInfo.screenWidth - 30)
+        this.setData({
+            canvasSize: systemInfo.screenWidth - 30  //px
+        })
     },
 
     /**
