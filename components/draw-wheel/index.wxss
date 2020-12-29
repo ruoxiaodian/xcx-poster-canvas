@@ -1,0 +1,4 @@
+/* components/draw-wheel/index.wxss */
+.canvas{
+    margin: 0 auto;
+}

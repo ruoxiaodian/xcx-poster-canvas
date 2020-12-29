@@ -7,8 +7,8 @@ class Draw {
         this.pixelRatio = pixelRatio || systemInfo.pixelRatio;
         this.canvas = canvas;
         this.context = canvas.getContext("2d");
-        this.canvas.width = parseInt(width * factor * this.pixelRatio);  //画布内容宽度
-        this.canvas.height = parseInt(height * factor * this.pixelRatio);  //画布内容高度
+        canvas.width = parseInt(width * factor * this.pixelRatio);  //画布内容宽度
+        canvas.height = parseInt(height * factor * this.pixelRatio);  //画布内容高度
         this.factor = factor;
         // this.context.scale(pixelRatio, pixelRatio)
     }
@@ -571,21 +571,21 @@ class Draw {
             strokeStyle,
             fillStyle;
         //rpx转换px
-        left ? left = left * factor * pixelRatio : null;
-        top ? top = top * factor * pixelRatio : null;
-        right ? right = right * factor * pixelRatio : null;
-        bottom ? bottom = bottom * factor * pixelRatio : null;
-        width ? width = width * factor * pixelRatio : null;
-        height ? height = height * factor * pixelRatio : null;
-        radius ? radius = radius * factor * pixelRatio : null;
-        borderWidth ? borderWidth = borderWidth * factor * pixelRatio : null;
-        borderRadius ? borderRadius = borderRadius * factor * pixelRatio : null;
-        hollowWidth ? hollowWidth = hollowWidth * factor * pixelRatio : null;
-        fontSize ? fontSize = fontSize * factor * pixelRatio : null;
-        lineHeight ? lineHeight = lineHeight * factor * pixelRatio : null;
-        shadowOffsetX ? shadowOffsetX = shadowOffsetX * factor * pixelRatio : null;
-        shadowOffsetY ? shadowOffsetY = shadowOffsetY * factor * pixelRatio : null;
-        shadowBlur ? shadowBlur = shadowBlur * factor * pixelRatio : null;
+        left ? left = parseInt(left * factor * pixelRatio) : null;
+        top ? top = parseInt(top * factor * pixelRatio) : null;
+        right ? right = parseInt(right * factor * pixelRatio) : null;
+        bottom ? bottom = parseInt(bottom * factor * pixelRatio) : null;
+        width ? width = parseInt(width * factor * pixelRatio) : null;
+        height ? height = parseInt(height * factor * pixelRatio) : null;
+        radius ? radius = parseInt(radius * factor * pixelRatio) : null;
+        borderWidth ? borderWidth = parseInt(borderWidth * factor * pixelRatio) : null;
+        borderRadius ? borderRadius = parseInt(borderRadius * factor * pixelRatio) : null;
+        hollowWidth ? hollowWidth = parseInt(hollowWidth * factor * pixelRatio) : null;
+        fontSize ? fontSize = parseInt(fontSize * factor * pixelRatio) : null;
+        lineHeight ? lineHeight = parseInt(lineHeight * factor * pixelRatio) : null;
+        shadowOffsetX ? shadowOffsetX = parseInt(shadowOffsetX * factor * pixelRatio) : null;
+        shadowOffsetY ? shadowOffsetY = parseInt(shadowOffsetY * factor * pixelRatio) : null;
+        shadowBlur ? shadowBlur = parseInt(shadowBlur * factor * pixelRatio) : null;
         //计算x坐标的位置
         src ? borderWidth *= 2 : null; //图片裁切会覆盖一半的描边
         lineWidth = borderWidth;

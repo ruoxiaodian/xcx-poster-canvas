@@ -21,18 +21,22 @@
         "checkSiteMap": true,
         "uploadWithSourceMap": true,
         "compileHotReLoad": false,
-        "useMultiFrameRuntime": true,
+        "useMultiFrameRuntime": false,
         "useApiHook": true,
         "babelSetting": {
             "ignore": [],
             "disablePlugins": [],
             "outputPath": ""
         },
+        "enableEngineNative": false,
+        "bundle": false,
         "useIsolateContext": true,
         "useCompilerModule": true,
         "userConfirmedUseCompilerModuleSwitch": false,
+        "userConfirmedBundleSwitch": false,
         "packNpmManually": false,
-        "packNpmRelationList": []
+        "packNpmRelationList": [],
+        "minifyWXSS": true
     },
     "compileType": "miniprogram",
     "libVersion": "2.10.3",
@@ -45,33 +49,27 @@
     "simulatorType": "wechat",
     "simulatorPluginLibVersion": {},
     "condition": {
-        "search": {
-            "current": -1,
-            "list": []
-        },
-        "conversation": {
-            "current": -1,
-            "list": []
-        },
         "plugin": {
-            "current": -1,
             "list": []
         },
         "game": {
-            "currentL": -1,
             "list": []
         },
         "gamePlugin": {
-            "current": -1,
             "list": []
         },
         "miniprogram": {
-            "current": -1,
             "list": [
                 {
                     "id": -1,
                     "name": "npm测试",
                     "pathName": "pages/npmTest/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "大转盘",
+                    "pathName": "pages/test/test",
                     "scene": null
                 }
             ]

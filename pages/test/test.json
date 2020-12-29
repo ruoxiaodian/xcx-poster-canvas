@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+      "components-wheel": "/components/draw-wheel/index"
+  }
+}
