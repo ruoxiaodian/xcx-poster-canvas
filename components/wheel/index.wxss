@@ -1,0 +1,93 @@
+/* components/wheel/index.wxss */
+.wheel-component-container{
+    position: relative;
+    width: 100%;
+}
+.wheel-component-container .canvas{
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+/*.wheel-content-container {*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*z-index: 2;*/
+    /*background-color: #e02739;*/
+/*}*/
+.wheel-list-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.wheel-list-container .item{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -50rpx;
+    width: 100rpx;
+    text-align: center;
+}
+.wheel-list-container .item-img{
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.wheel-button-container{
+    position: absolute;
+    overflow: inherit;
+    left: 50%;
+    top: 50%;
+    margin-left: -100rpx;
+    margin-top: -100rpx;
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 100%;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom, #f05651, #cc3628)
+}
+.wheel-button-container .bg2{
+    position: absolute;
+    left: 20rpx;
+    top: 20rpx;
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 100%;
+    background: linear-gradient(to bottom, #cc3628, #f05651);
+    z-index: 2;
+}
+.wheel-button-container .box{
+    position: absolute;
+    left: 30rpx;
+    top: 30rpx;
+    right: 30rpx;
+    bottom: 30rpx;
+    border-radius: 100%;
+    background: linear-gradient(to bottom, #fff9ae, #e5a640);
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+.wheel-button-container .box-text{
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    color: #e02739;
+}
+.wheel-button-container .icon{
+    position: absolute;
+    width: 60rpx;
+    height: 60rpx;
+    left: 50%;
+    margin-left: -30rpx;
+    top: -45rpx;
+    z-index: 1;
+}

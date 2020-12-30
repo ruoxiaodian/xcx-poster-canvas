@@ -70,6 +70,12 @@
                 {
                     "name": "大转盘",
                     "pathName": "pages/test/test",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "大转盘--view",
+                    "pathName": "pages/wheelTest/index",
                     "scene": null
                 }
             ]

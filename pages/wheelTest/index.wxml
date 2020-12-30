@@ -1,0 +1,4 @@
+<!--pages/wheelTest/index.wxml-->
+<view class="wheel-container">
+    <Wheel list="{{list}}"></Wheel>
+</view>

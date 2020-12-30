@@ -9,13 +9,14 @@ export default class Wheel {
             canvas = null, //canvas实例
             width = 750, //宽度
             height = 750, //高度
-            num = 6, //扇区划分
             colors = ["#fbf6d8", "#ffffff"], //颜色设置
+            list = []
         } = data;
         this.canvas = canvas;
         this.width = width;
         this.height = height;
-        this.num = num;
+        this.list = list;
+        this.num = list.length;
         this.colors = colors;
         canvas.width = parseInt(width * pixelRatio);  //画布内容宽度
         canvas.height = parseInt(height * pixelRatio);  //画布内容高度
@@ -39,7 +40,9 @@ export default class Wheel {
             that._drawLights(8, lightChange);
             that._drawSectors();
             that._drawButton();
+            that._drawPrizes();
         }, 1000)
+
 
     }
 
@@ -49,13 +52,11 @@ export default class Wheel {
     _drawBg () {
         const context = this.context;
         const width = this.canvas.width;
-        context.restore();
         context.beginPath(); //开始绘制
         context.fillStyle = "#ffb90d";
         context.arc(0, 0, width / 2, 0, 2 * Math.PI);
         context.fill();
         context.save();
-
     }
 
     /*
@@ -74,7 +75,6 @@ export default class Wheel {
             let angle = index * baseAngle;
             let x = r * Math.cos(angle);
             let y = r * Math.sin(angle);
-            context.restore();
             context.beginPath();//开始绘制
             context.fillStyle = index % 2 === 0 ? colors[0] : colors[1];
             context.arc(x, y, radius, 0, Math.PI * 2);
@@ -95,7 +95,6 @@ export default class Wheel {
         let colorStart = 0;
         for(let index = 0; index < num; index ++) {
             let angle = index * baseAngle;
-            context.restore();
             context.beginPath();//开始绘制
             context.fillStyle = colors[colorStart];//设置每个扇形区域的颜色
             colorStart = (colorStart === colors.length - 1) ? 0 : (colorStart + 1);
@@ -141,6 +140,64 @@ export default class Wheel {
         context.fill();
         context.closePath();
         context.save();
+    }
+
+    /*
+    * 绘制奖品以及奖品名称
+    * */
+    async _drawPrizes (padding = 30) {
+        const context = this.context;
+        const width = this.canvas.width;
+        const list = this.list;
+        const num = this.num;
+        let baseAngle = Math.PI * 2 / num;
+        for(let index = 0; index < num; index ++) {
+            let angle = index * baseAngle;
+            let imgSource = await this._getImageInstance(list[index].img);
+            context.rotate(angle);
+            context.drawImage(imgSource, 0, 0, 100, 100)
+            context.save();//保存当前环境的状态
+            context.restore();
+        }
+    }
+
+
+    /*
+    * 获取image对象
+    * */
+    _getImageInstance (src) {
+        const that = this;
+        const canvas = that.canvas;
+        return new Promise(function (resolve, reject) {
+            if (!src) {reject(new Error("图片路径不能为空"))}
+            if (src.indexOf("https") !== 0) { //本地图片
+                let image = canvas.createImage();
+                image.src = src;
+                image.onload = function () {
+                    resolve(image)
+                }
+                image.onerror = function (err) {
+                    reject(err)
+                }
+            } else {
+                wx.getImageInfo({
+                    src: src,
+                    success: function (res) {
+                        let image = canvas.createImage();
+                        image.src = res.path;
+                        image.onload = function () {
+                            resolve(image)
+                        }
+                        image.onerror = function (err) {
+                            reject(err)
+                        }
+                    },
+                    fail: function (err) {
+                        reject(err)
+                    }
+                })
+            }
+        })
     }
 
 }

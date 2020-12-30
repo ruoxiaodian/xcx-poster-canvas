@@ -8,6 +8,17 @@ Component({
         size: {  //绘制图片宽度 px
             type: Number,
             value: 828
+        },
+        list: {
+            type: Array,
+            value: [
+                {name: "xxx", img: "/images/test.jpg"},
+                {name: "xxx", img: "/images/test.jpg"},
+                {name: "xxx", img: "/images/test.jpg"},
+                {name: "xxx", img: "/images/test.jpg"},
+                {name: "xxx", img: "/images/test.jpg"},
+                {name: "xxx", img: "/images/test.jpg"}
+            ]
         }
     },
 
@@ -44,11 +55,13 @@ Component({
                 .exec((res) => {
                     const canvas = res[0].node;
                     const size = that.data.size;
+                    const list = that.data.list;
                     new Wheel({
                         canvas: canvas,
                         width: size,
                         height: size,
-                        colors: ["#fbf6d8", "#ffffff"]
+                        colors: ["#fbf6d8", "#ffffff"],
+                        list: list
                     });
                 })
         }

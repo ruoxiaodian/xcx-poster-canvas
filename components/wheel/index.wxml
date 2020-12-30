@@ -1,0 +1,31 @@
+<!--components/wheel/index.wxml-->
+<view class="wheel-component-container" style="height: {{size}}px">
+    <!--<canvas id="canvas"-->
+            <!--class="canvas"-->
+            <!--type="2d"-->
+            <!--style="{{'width:' + size + 'px; height:' + size + 'px;'}}">-->
+        <!---->
+    <!--</canvas>-->
+    <cover-view class="wheel-button-container">
+        <cover-image class="icon" src="/images/jiantou-icon.png"></cover-image>
+        <cover-view class="bg2"></cover-view>
+        <cover-view class="box">
+            <cover-view class="box-text">
+                <cover-view>点击</cover-view>
+                <cover-view>抽奖</cover-view>
+            </cover-view>
+        </cover-view>
+    </cover-view>
+    <cover-view class="wheel-list-container">
+        <block wx:for="{{_list}}"
+               wx:key="index">
+            <cover-view class="item"
+                        style="transform: rotate({{item.rotate}}deg); transform-origin: 50% {{_origin}}rpx; margin-top: {{-_origin}}rpx">
+                <cover-image class="item-img" src="{{item.img}}"></cover-image>
+                <!--<cover-view>{{item.name}}</cover-view>-->
+            </cover-view>
+        </block>
+    </cover-view>
+
+</view>
+

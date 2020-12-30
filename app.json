@@ -2,7 +2,8 @@
     "pages": [
         "pages/index/index",
         "pages/npmTest/index",
-        "pages/test/test"
+        "pages/test/test",
+        "pages/wheelTest/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
