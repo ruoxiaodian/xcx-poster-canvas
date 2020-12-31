@@ -49,7 +49,8 @@
     height: 200rpx;
     border-radius: 100%;
     box-sizing: border-box;
-    background: linear-gradient(to bottom, #f05651, #cc3628)
+    background: linear-gradient(to bottom, #f05651, #cc3628);
+    z-index: 3;
 }
 .wheel-button-container .bg2{
     position: absolute;
