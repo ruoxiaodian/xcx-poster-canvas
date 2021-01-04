@@ -4,9 +4,13 @@ Component({
      * 组件的属性列表
      */
     properties: {
+        start: { //开始
+            type: Boolean,
+            value: false
+        },
         prizeInx: { //中奖索引
             type: Number,
-            value: 1
+            value: -1
         },
         length: { //奖品个数
             type: Number,
@@ -27,6 +31,10 @@ Component({
         maxSpeed: {
             type: Number, //最大差值(转速)
             value: 35   //deg
+        },
+        roundNum: {  //圈数
+            type: Number,
+            value: 1
         }
     },
 
@@ -34,7 +42,8 @@ Component({
      * 组件的初始数据
      */
     data: {
-
+        _speed: 10,
+        _acceleration: 1.2
     },
 
     /*
@@ -43,6 +52,23 @@ Component({
     lifetimes: {
         attached: function () {
             this.init();
+        }
+    },
+
+    /*
+    * 监听
+    * */
+    observers: {
+        "prizeInx": function (val) {
+            if (val && val >= 0) {
+                this.setData({_acceleration: 0.95});
+            }
+        },
+        "speed": function (val) {
+            this.data._speed = val || 0
+        },
+        "acceleration": function (val) {
+            this.data._acceleration = val || 0
         }
     },
 
@@ -70,62 +96,60 @@ Component({
         * 点击开始抽奖
         * */
         onStart: function () {
-            const speed = this.data.speed;
+            const speed = this.data._speed;
             const maxSpeed = this.data.maxSpeed;
-            if (this._isStart) {
+            if (this._isStart) { //如果是开始 则停止
                 return false
             } else {
-                this._isStart = true
-                this._move(speed, maxSpeed)
+                this._isStart = true;
+                this.setData({_acceleration: this.data.acceleration});
+                this._move(speed, maxSpeed);
             }
         },
-        _move: function (speed, maxSpeed) {
+
+        /*
+        * 旋转
+        * */
+        _move: function (reg, maxSpeed) {
             const that = this;
-            const acceleration = this.data.acceleration;
-            const _speed = this.data.speed;
+            const acceleration = this.data._acceleration;
+            const speed = this.data.speed;
+            const roundNum = this.data.roundNum;
             const Animation = wx.createAnimation({
                 transformOrigin: "50% 50%"
             });
             that._timeOut = setTimeout(function () {
-                Animation.rotate(speed).step();
+                Animation.rotate(reg).step();
                 if (acceleration > 1) { //加速
-                    if (speed * acceleration - speed > maxSpeed) {
-                        speed += maxSpeed;
+                    if (reg * acceleration - reg > maxSpeed) {
+                        reg += maxSpeed;
                     } else {
-                        speed = parseInt(speed * acceleration);
+                        reg = parseInt(reg * acceleration);
                     }
                 } else { //减速
-                    if (maxSpeed * acceleration <= speed) {
-                        let stopReg = that._stop(speed);
-                        if (stopReg) {
-                            Animation.rotate(stopReg).step();
-                            that.setData({animation: Animation});
-                            clearTimeout(that._timeOut);
-                            return false
+                    if (parseInt(reg / 360) >= roundNum) {
+                        if (maxSpeed * acceleration <= reg) {
+                            let stopReg = that._stop(reg);
+                            if (stopReg) {
+                                Animation.rotate(stopReg).step();
+                                that.setData({animation: Animation});
+                                clearTimeout(that._timeOut);
+                                return false
+                            } else {
+                                reg += speed;
+                            }
                         } else {
-                            speed += _speed;
+                            maxSpeed *= speed;
+                            reg += maxSpeed;
                         }
                     } else {
-                        maxSpeed *= acceleration;
-                        speed += maxSpeed;
+                        reg += maxSpeed;
                     }
                 }
                 that.setData({animation: Animation});
-                that._move(speed, maxSpeed)
+                that.data._speed = reg;
+                that._move(reg, maxSpeed)
             }, 200)
-        },
-
-        /*
-        * 抽奖结束
-        * */
-        onEnd: function () {
-
-            if (this._isEnd) {
-                return false
-            } else {
-                this._isEnd = true;
-                this.setData({acceleration: 0.95});
-            }
         },
 
         _stop: function (deg) {
@@ -135,8 +159,10 @@ Component({
             const single = 360 / length; //每个扇区的占比
             let current = deg % 360;
             let stopDeg = prizeInx * single;
-            if (current > stopDeg && current - stopDeg > speed) {
-                return deg + (360 - current - stopDeg)
+            let differ = Math.abs(360 - current - stopDeg);
+            if (differ < speed) {
+                delete this._isStart;
+                return deg + differ
             }
             return false
         }

@@ -1,6 +1,6 @@
 <!--pages/test/wheel/index.wxml-->
 <view class="wheel-container" style="width: {{size}}px; height: {{size}}px">
-    <view class="wheel-button-container">
+    <view class="wheel-button-container" bindtap="onStart">
         <image class="icon" mode="" src="/images/jiantou-icon.png"></image>
         <view class="bg2"></view>
         <view class="box">
@@ -12,5 +12,3 @@
     </view>
     <image class="bg" animation="{{animation}}" src="/images/wheel-bg.png"></image>
 </view>
-<view bindtap="onStart">开始</view>
-<view bindtap="onEnd">停止</view>

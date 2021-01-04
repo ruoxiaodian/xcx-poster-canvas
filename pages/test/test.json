@@ -1,5 +1,5 @@
 {
-  "usingComponents": {
+    "usingComponents": {
         "Wheel": "./wheel/index"
-  }
+    }
 }

@@ -15,7 +15,10 @@ Page({
 
     },
 
-
+    bindInput: function (e) {
+        console.log(e)
+        this.setData({prizeInx: e.detail.value})
+    },
 
 
     /**

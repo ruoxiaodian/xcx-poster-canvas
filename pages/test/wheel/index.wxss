@@ -12,15 +12,16 @@
     width: 100%;
     height: 100%;
 }
+/*按钮*/
 .wheel-button-container{
     position: absolute;
     overflow: inherit;
     left: 50%;
     top: 50%;
-    margin-left: -100rpx;
-    margin-top: -100rpx;
-    width: 200rpx;
-    height: 200rpx;
+    margin-left: -90rpx;
+    margin-top: -90rpx;
+    width: 180rpx;
+    height: 180rpx;
     border-radius: 100%;
     box-sizing: border-box;
     background: linear-gradient(to bottom, #f05651, #cc3628);
@@ -28,10 +29,12 @@
 }
 .wheel-button-container .bg2{
     position: absolute;
-    left: 20rpx;
-    top: 20rpx;
-    width: 160rpx;
-    height: 160rpx;
+    left: 50%;
+    top: 50%;
+    margin-left: -70rpx;
+    margin-top: -70rpx;
+    width: 140rpx;
+    height: 140rpx;
     border-radius: 100%;
     background: linear-gradient(to bottom, #cc3628, #f05651);
     z-index: 2;

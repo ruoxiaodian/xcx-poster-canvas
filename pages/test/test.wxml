@@ -1,3 +1,4 @@
 <!--pages/test/test.wxml-->
-<Wheel></Wheel>
+<Wheel prize-inx="{{prizeInx}}"></Wheel>
+<input class="weui-input" type="number" placeholder="这是一个数字输入框" bindinput="bindInput"/>
 
