@@ -1,0 +1,16 @@
+<!--pages/test/wheel/index.wxml-->
+<view class="wheel-container" style="width: {{size}}px; height: {{size}}px">
+    <view class="wheel-button-container">
+        <image class="icon" mode="" src="/images/jiantou-icon.png"></image>
+        <view class="bg2"></view>
+        <view class="box">
+            <view class="box-text">
+                <view>点击</view>
+                <view>抽奖</view>
+            </view>
+        </view>
+    </view>
+    <image class="bg" animation="{{animation}}" src="/images/wheel-bg.png"></image>
+</view>
+<view bindtap="onStart">开始</view>
+<view bindtap="onEnd">停止</view>

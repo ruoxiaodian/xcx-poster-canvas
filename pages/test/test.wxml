@@ -1,9 +1,3 @@
 <!--pages/test/test.wxml-->
-<view class="wheel-container" style="width: {{canvasSize}}px; height: {{canvasSize}}px">
-    <!--<view class="button">-->
-        <!--<view>开始</view>-->
-        <!--<view>抽奖</view>-->
-    <!--</view>-->
-    <components-wheel size="{{canvasSize}}"></components-wheel>
-</view>
+<Wheel></Wheel>
 

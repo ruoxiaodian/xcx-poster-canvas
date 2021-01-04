@@ -17,7 +17,6 @@ export default class Bg {
         } = data;
         this.canvas = canvas;
         this.prizeList = prizeList;
-        this.num = prizeList.length;
         this.width = width;
         this.height = height;
         this.bgColor = bgColor;
@@ -27,25 +26,34 @@ export default class Bg {
         canvas.width = parseInt(width * pixelRatio);  //画布内容宽度
         canvas.height = parseInt(height * pixelRatio);  //画布内容高度
         this.context = canvas.getContext("2d");
+        this.speed = Math.PI / 180; //旋转速度
+        this.maxSpeed = Math.PI; //加速度
+        this.acceleration = 0.1;
         this._timeInterval = null;
+        this._isStart = false; //是否开始 开关
         this.init ()
     }
 
     /*初始化*/
     async init () {
         const that = this;
+        const canvas = this.canvas;
         const context = this.context;
         const width = this.canvas.width;
+        const num = this.prizeList.length;
+        const baseAngle = Math.PI * 2 / num;
         await this._getImgSource();
         let lightChange = false;
         context.translate(width / 2, width / 2);
-        clearInterval(that._timeInterval);
-            lightChange = !lightChange;
-            context.clearRect(0, 0, width, width);
-            that._drawBg();
-            that._drawLights(8, lightChange);
-            that._drawSectors();
-            that._drawPrize();
+        context.rotate(-(Math.PI / 2 * baseAngle +  baseAngle))
+        // clearInterval(that._timeInterval);
+        //     lightChange = !lightChange;
+        //     context.clearRect(0, 0, width, width);
+        //     that._drawBg();
+        //     that._drawLights(8, lightChange);
+        //     that._drawSectors();
+        //     that._drawPrize();
+        this.start()
 
     }
 
@@ -111,15 +119,15 @@ export default class Bg {
     /*
     * 划分扇区
     * */
-    _drawSectors (padding = 30) {
+    _drawSectors (rotate = 0, padding = 30) {
         const context = this.context;
         const width = this.canvas.width;
-        const num = this.num;
+        const num = this.prizeList.length;
         const sectorsColor = this.sectorsColor;
         let baseAngle = Math.PI * 2 / num;
         let colorStart = 0;
         for(let index = 0; index < num; index ++) {
-            let angle = index * baseAngle;
+            let angle = index * baseAngle + rotate;
             context.save();//保存当前环境的状态
             context.beginPath();//开始绘制
             context.fillStyle = sectorsColor[colorStart];//设置每个扇形区域的颜色
@@ -135,15 +143,15 @@ export default class Bg {
     /*
     * 绘制奖品
     * */
-    async _drawPrize () {
+    async _drawPrize (rotate = 0) {
         try {
             const context = this.context;
             const list = this.prizeList;
-            const num = this.num;
+            const num = this.prizeList.length;
             let imgSize = 100;
             let baseAngle = Math.PI * 2 / num;
             for(let index = 0; index < num; index ++) {
-                let angle = index * baseAngle;
+                let angle = index * baseAngle + rotate;
                 let imgSource = list[index].imgSource;
                 let text = list[index].name;
                 let textWidth = context.measureText(text).width;
@@ -204,6 +212,41 @@ export default class Bg {
                     }
                 })
             }
+        })
+    }
+
+    /*
+    * 开始抽奖
+    * */
+    start () {
+        const that = this;
+        const canvas = this.canvas;
+        const speed = this.speed;
+        let _isStart = this._isStart;
+        if (!_isStart) {
+            this._isStart = !_isStart;
+            canvas.requestAnimationFrame(function () {
+                that._startRun(speed);
+            })
+        }
+    }
+    _startRun (rotate) {
+        const that = this;
+        const context = this.context;
+        const canvas = this.canvas;
+        const width = this.canvas.width;
+        const speed = this.speed;
+        const maxSpeed = this.maxSpeed;
+        const acceleration = this.acceleration;
+        context.clearRect(0, 0, width, width);
+        that._drawBg();
+        that._drawLights(8);
+        that._drawSectors(rotate);
+        that._drawPrize(rotate);
+        canvas.requestAnimationFrame(function () {
+            rotate = rotate + speed;
+            console.log(rotate)
+            that._startRun(rotate);
         })
     }
 }
